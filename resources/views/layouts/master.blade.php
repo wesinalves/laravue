@@ -9,6 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>Laravel + Vue Application</title>
 
@@ -16,7 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 </head>
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<div class="wrapper" id="app">
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
@@ -72,12 +73,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
           
          <li class="nav-item">
-           <a href="#" class="nav-link">
+           <router-link to="/dashboard" class="nav-link">
              <i class="nav-icon fa fa-th"></i>
              <p>
                dashboard
              </p>
-           </a>
+           </router-link>
          </li>
 
 
@@ -105,12 +106,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
           <li class="nav-item">
-           <a href="#" class="nav-link">
+           <router-link to="/profile" class="nav-link">
              <i class="nav-icon fa fa-user"></i>
              <p>
                profile
              </p>
-           </a>
+           </router-link>
          </li>
 
          <li class="nav-item">
@@ -130,14 +131,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" >
     
 
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-
+          <router-view></router-view>
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
