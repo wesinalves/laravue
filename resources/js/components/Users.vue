@@ -43,8 +43,7 @@
                     </div>
                     <!-- /.card -->
                   </div>
-                </div>
-
+        </div>
         <!-- Modal -->
         <div class="modal fade" id="addNew" tabindex="-1" role="dialog" aria-labelledby="addNewLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -89,19 +88,19 @@
                         <has-error :form="form" field="password"></has-error>
                     </div>
 
-
-                    </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Create</button>
+                      <button type="submit" class="btn btn-primary">Create</button>
                     </div>
 
+                </form>
                 
 
+              </div>
             </div>
           </div>
         </div>
-    </div>
+    </div>    
 </template>
 
 <script>
