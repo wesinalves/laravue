@@ -12,7 +12,15 @@ window.Vue = require('vue');
 import { Form, HasError, AlertError } from 'vform';
 import VueRouter from 'vue-router';
 import moment from 'moment';
+import VueProgressBar from 'vue-progressbar'
+
 Vue.use(VueRouter)
+
+Vue.use(VueProgressBar, {
+  color: 'rgb(143, 255, 199)',
+  failedColor: 'red',
+  height: '2px'
+})
 
 window.Form = Form;
 
