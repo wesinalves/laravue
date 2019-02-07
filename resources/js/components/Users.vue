@@ -123,6 +123,7 @@
         methods: {
             loadUsers(){
               axios.get("api/user").then(({ data }) => (this.users = data.data));
+
             },
             createUser(){
               this.$Progress.start();
@@ -137,6 +138,7 @@
         },
         created() {
             this.loadUsers();
+            setInterval(() => this.loadUsers(), 3000)
         }
     }
 </script>
