@@ -15,7 +15,7 @@ import moment from 'moment';
 import VueProgressBar from 'vue-progressbar';
 import Swal from 'sweetalert2';
 
-window.Sawl = Swal;
+window.Swal = Swal;
 
  
 const Toast = Swal.mixin({

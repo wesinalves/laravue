@@ -1972,7 +1972,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteUser: function deleteUser(id) {
       var _this = this;
 
-      Sawl.fire({
+      Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
         type: 'warning',
@@ -72485,7 +72485,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
-window.Sawl = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a;
+window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a;
 var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
   toast: true,
   position: 'top-end',
