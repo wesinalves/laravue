@@ -77,7 +77,7 @@ class UserController extends Controller
     {
         //
         $user =User::findOrFail($id);
-        //$user->delete();
+        $user->delete();
         return ['message' => "user deleted"];
     }
 }

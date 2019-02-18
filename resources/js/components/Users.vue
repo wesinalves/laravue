@@ -7,7 +7,7 @@
                         <h3 class="card-title">Users Table</h3>
 
                         <div class="card-tools">
-                          <button class="btn btn-success" data-toggle="modal" data-target="#addNew">Add new
+                          <button class="btn btn-success" @click="newModal">Add new
                             <i class="fas fa-user-plus fa-fw"></i>
                           </button>
                         </div>
@@ -30,7 +30,7 @@
                             <td>{{user.type}}</td>
                             <td>{{user.created_at | myDate}}</td>
                             <td>
-                                <a href=""><i class='fa fa-edit blue'></i>
+                                <a href="#" @click="editModal(user)"><i class='fa fa-edit blue'></i>
                                 </a> /
 
                                 <a href="#" @click="deleteUser(user.id)">
@@ -122,6 +122,16 @@
           }
         },
         methods: {
+            editModal(user){
+              this.form.reset();
+              $("#addNew").modal('show');
+              this.form.fill(user);
+
+            },
+            newModal(){
+              this.form.reset();
+              $("#addNew").modal('show');
+            },
             deleteUser(id){
 
               Swal.fire({
@@ -133,16 +143,19 @@
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
               }).then((result) => {
-                // send request to the server
-                this.form.delete('api/user/'+id).then(()=>{
-                    Swal.fire(
-                      'Deleted!',
-                      'Your file has been deleted.',
-                      'success'
-                    )                 
-                }).catch(()=>{
-                    Swal.fire('Error at delete')
-                });
+                if (result.value) {
+                  // send request to the server
+                  this.form.delete('api/user/'+id).then(()=>{
+                      Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                      )
+                      Fire.$emit('AfterCreated');                 
+                  }).catch(()=>{
+                      Swal.fire('Error at delete')
+                  });
+                }
                 
               })    
             },
