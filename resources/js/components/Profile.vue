@@ -204,7 +204,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="photo">Profile photo</label>
                                  <div class="col-sm-12">
-                                    <input type="file" class="file-input" id="photo">
+                                    <input type="file" @change='updateProfile' class="file-input" id="photo">
                                     
                               
                                 </div>
@@ -250,6 +250,18 @@
                   bio: '',
                   photo: ''
                 })
+            }
+        },
+        methods:{
+            updateProfile(e){
+              let file = e.target.files[0];
+              let reader = new FileReader();
+              reader.onloadend = (file) => {
+                //console.log('RESULT', reader.result)
+                this.form.photo = reader.result;
+              }
+
+              reader.readAsDataURL(file);
             }
         },
         mounted() {
