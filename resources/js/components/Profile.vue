@@ -221,7 +221,7 @@
 
                           <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                              <button type="submit" class="btn btn-success">Submit</button>
+                              <button @click.prevent="updateInfo" type="submit" class="btn btn-success">Submit</button>
                             </div>
                           </div>
                         </form>
@@ -253,6 +253,15 @@
             }
         },
         methods:{
+            updateInfo(){
+              this.form.put('api/profile')
+              .then(() => {
+
+              })
+              .catch(()=> {
+
+              });
+            },
             updateProfile(e){
               let file = e.target.files[0];
               let reader = new FileReader();
