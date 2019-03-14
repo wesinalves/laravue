@@ -211,10 +211,10 @@
                             </div>
 
                           <div class="form-group">
-                            <label for="inputPassport" class="col-sm-2 control-label">Passport</label>
+                            <label for="passport" class="col-sm-2 control-label">Passport</label>
 
                             <div class="col-sm-12">
-                              <input type="text" class="form-control" id="inputPassport" placeholder="Passport">
+                              <input type="password" v-model="form.password" class="form-control" id="passport" placeholder="Passport">
                             </div>
                           </div>
                           
@@ -254,23 +254,36 @@
         },
         methods:{
             updateInfo(){
+              this.$Progress.start();
               this.form.put('api/profile')
               .then(() => {
-
+                this.$Progress.finish();
               })
               .catch(()=> {
+
+                this.$Progress.fail();
 
               });
             },
             updateProfile(e){
               let file = e.target.files[0];
               let reader = new FileReader();
-              reader.onloadend = (file) => {
-                //console.log('RESULT', reader.result)
-                this.form.photo = reader.result;
-              }
 
-              reader.readAsDataURL(file);
+              if(file['size'] < 2111775){
+                reader.onloadend = (file) => {
+                  //console.log('RESULT', reader.result)
+                  this.form.photo = reader.result;
+                }
+
+                reader.readAsDataURL(file);
+                
+              }else{
+                Swal.fire(
+                    'Ooops!',
+                    'File size must be lower than 2MB.',
+                    'error'
+                  )
+              }
             }
         },
         mounted() {
