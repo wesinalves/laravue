@@ -43,6 +43,7 @@ window.Form = Form;
 
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
+
 Vue.component(
     'passport-clients',
     require('./components/passport/Clients.vue').default
@@ -56,6 +57,11 @@ Vue.component(
 Vue.component(
     'passport-personal-access-tokens',
     require('./components/passport/PersonalAccessTokens.vue').default
+);
+
+Vue.component(
+    'not-found',
+    require('./components/NotFound.vue').default
 );
 
 let routes = [
