@@ -6,7 +6,7 @@
                     <div class="card-header">Error 404</div>
 
                     <div class="card-body">
-                        You are not authorized to access this page.
+                        Not found you are looking for.
                     </div>
                 </div>
             </div>
