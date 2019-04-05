@@ -109,5 +109,13 @@ window.Fire = new Vue();
  */
 
 const app = new Vue({
-    router
+    router,
+    data:{
+      search:''
+    },
+    methods:{
+      searchit(){
+        Fire.$emit('searching');
+      }
+    }
 }).$mount('#app');
